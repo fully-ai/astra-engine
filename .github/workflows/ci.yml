@@ -1,0 +1,26 @@
+name: Astra Engine CI
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+permissions:
+  contents: read
+
+jobs:
+  linux-cmake-build-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install SDL2, GLEW, OpenGL, EGL, GTest
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y cmake ninja-build libsdl2-dev libglew-dev libegl-dev libgl-dev libgtest-dev
+      - name: Configure & Build
+        run: cmake -B build -G Ninja -DCMAKE_BUILD_TYPE=Release && cmake --build build -j
+      - name: Run Engine Test Suite
+        run: ctest --test-dir build --output-on-failure
+      - name: Run Sample Simulation Smoke
+        run: ./build/astra-sample --headless-smoke

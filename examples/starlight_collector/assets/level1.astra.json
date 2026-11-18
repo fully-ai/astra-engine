@@ -1,0 +1,7 @@
+{
+  "name": "StarlightCollector_Level1",
+  "entities": [
+    {"id": 1, "name": "Sun", "tag": "light", "transform": {"pos": [10, 16, 8], "rot": [0,0,0], "scale": [1,1,1], "parent": 0}, "light": {"kind": 0, "color": [1, 0.96, 0.9], "intensity": 2.4, "range": 50}},
+    {"id": 2, "name": "ArenaFloor", "tag": "env", "transform": {"pos": [0, -0.5, 0], "rot": [0,0,0], "scale": [24,1,24], "parent": 0}, "mesh": {"mesh_id": "cube", "albedo": [0.16,0.21,0.3], "emissive": [0,0,0], "metallic": 0.2, "roughness": 0.6, "cast_shadow": false}}
+  ]
+}

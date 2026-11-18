@@ -1,0 +1,8 @@
+build/
+dist/
+*.o
+*.a
+.vscode/
+.vs/
+CMakeUserPresets.json
+.DS_Store
